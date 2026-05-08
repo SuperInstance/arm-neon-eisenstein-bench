@@ -1,0 +1,14 @@
+[package]
+name = "arm-neon-eisenstein-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+# Cross-compile: cargo build --target aarch64-unknown-none --release
+# For testing on x86_64 (no PMCCNTR): cargo run --release
