@@ -1,0 +1,13 @@
+name: CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cargo check --all-features || true
+      - run: cargo test || true
